@@ -11,6 +11,11 @@ services:
   web:
     build: .
     command: sh start.sh
+    environment:
+      - AWS_ACCESS_KEY_ID=AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY=AWS_SECRET_ACCESS_KEY
+      - AWS_STORAGE_BUCKET_NAME=AWS_STORAGE_BUCKET_NAME
+      - GOOGLE_MAP_API_KEY=GOOGLE_MAP_API_KEY
     ports:
       - "8080:8080"
     depends_on:
