@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    image: kartoza/postgis
+    container_name: db
+    environment:
+      POSTGRES_DBNAME: test
+      POSTGRES_USER: admin
+      POSTGRES_PASS: admin
+  web:
+    build: .
+    command: sh start.sh
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
